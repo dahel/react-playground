@@ -1,1 +1,12 @@
-1. Storing list of actions
+1. podpiecie akcji to sagi
+2. Podpiecie redux-loggera, przyda sie mimo pluginu do reduxa
+2. Dodac action creators to utilsów jakichs:
+
+return createAction(type.EXAMPLE_ACTION_TYPE)
+
+zamiast:
+
+return {
+		type: 'EXAMPLE_ACTION',
+		payload: ''
+	};

@@ -31,6 +31,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     alias: {
       config: path.join(__dirname, 'src/app/config/config.development'),
+      actionTypes: path.join(__dirname, 'src/app/actions/types'),
       store: path.join(__dirname, 'src/app/store/store.development')
     }
   },

@@ -1,6 +1,8 @@
+import type from 'actionTypes';
+
 export function exampleAction() {
 	return {
-		type: 'EXAMPLE_ACTION',
+		type: type.EXAMPLE_ACTION_TYPE,
 		payload: ''
 	};
 }
