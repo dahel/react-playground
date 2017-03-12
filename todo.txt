@@ -1,1 +1,1 @@
-1. Testy
+1. Testing redux-connected components (Example.js in this case)

@@ -4,29 +4,18 @@ import sinon from 'sinon';
 import { expect } from 'chai'
 import App from './App'
 
-const wrapper = shallow(<App />);
-//
-// xdescribe('(Component) App', () => {
-// 	it('renders...', () => {
-// 		console.log(wrapper);
-// 		expect(wrapper).to.have.length(1);
-// 	});
-//
-// 	it('calls componentDidMount', () => {
-// 		const wrapper = mount(<App />);
-//
-// 		expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
-// 	});
-// });
+describe('(Component) App', () => {
+	it('renders...', () => {
+		const wrapper = shallow(<App />);
 
-describe('<App />', () => {
+		expect(wrapper).to.have.length(1);
+	});
 
 	it('calls componentDidMount', () => {
-		const wrapper = mount(<App />);
-
 		sinon.spy(App.prototype, 'componentDidMount');
+
+		mount(<App />);
 
 		expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
 	});
-
 });
