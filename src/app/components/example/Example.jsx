@@ -13,7 +13,7 @@ class Example extends Component {
 
 	render () {
 		return (
-			<div>
+			<div className="example">
 				<div>Example Component</div>
 				<div>{this.props.exampleStore.name}</div>
 				<div onClick={this.exampleMethod}>(click for example)</div>

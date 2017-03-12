@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-// todo order it
 var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
@@ -27,24 +27,27 @@ module.exports = {
     ]
   },
   resolve: {
-    root: path.resolve(__dirname),
+    root: ROOT_PATH,
     extensions: ['', '.js', '.jsx'],
     alias: {
-      config: path.join(__dirname, 'src/app/config/config.development'),
-      actionTypes: path.join(__dirname, 'src/app/actions/types'),
-      store: path.join(__dirname, 'src/app/store/store.development')
+      config: path.join(ROOT_PATH, 'src/app/config/config.development'),
+      action: path.join(ROOT_PATH, 'src/app/action'),
+      store: path.join(ROOT_PATH, 'src/app/store/store.development')
     }
   },
   output: {
-    path: __dirname + '/dist',
+    path: ROOT_PATH + '/dist',
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: __dirname + '/dist',
+    contentBase: ROOT_PATH + '/dist',
     hot: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([
+      { from: './src/index.html' }
+    ]),
   ]
 };

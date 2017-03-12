@@ -1,3 +1,3 @@
 export default {
-	EXAMPLE_CONFIG: 'example config'
+	EXAMPLE_CONFIG: 'example development config'
 }

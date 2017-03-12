@@ -1,14 +1,15 @@
 var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
+var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
-  debug: true,
-  devtool: 'source-map',
+  debug: false,
+  devtool: 'cheap-module-source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/index.jsx'
+    'babel-polyfill',
+    path.resolve(ROOT_PATH, 'src/index.jsx')
   ],
   module: {
     loaders: [
@@ -20,34 +21,32 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
-      },
-      {
-        test: /\.json/,
-        loader: "json",
-        output: './dist/bla'
       }
     ]
   },
   resolve: {
+    root: ROOT_PATH,
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'react-redux': path.join(__dirname, '/node_modules/react-redux/dist/react-redux.min')
+      config: path.join(ROOT_PATH, 'src/app/config/config.production'),
+      action: path.join(ROOT_PATH, 'src/app/action'),
+      store: path.join(ROOT_PATH, 'src/app/store/store.production')
     }
   },
   output: {
-    path: __dirname + '/dist',
+    path: ROOT_PATH + '/dist',
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
     new CopyWebpackPlugin([
-      { from: './src/i18n' },
-      { from: './src/css' }
-    ])
+      { from: './src/index.html' }
+    ]),
   ]
 };

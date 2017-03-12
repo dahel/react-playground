@@ -1,8 +1,6 @@
-import type from 'actionTypes';
+import type from 'action/types';
+import createAction from 'action/create';
 
 export function exampleAction() {
-	return {
-		type: type.EXAMPLE_ACTION_TYPE,
-		payload: ''
-	};
+	return createAction(type.EXAMPLE_ACTION_TYPE);
 }

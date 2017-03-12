@@ -1,5 +1,7 @@
 import { take, put, select } from 'redux-saga/effects'
 
+import type from 'action/types';
+
 export function* doExample(payload) {
 	try {
 		yield put({type: 'DO_EXAMPLE_REQUEST'});
@@ -11,7 +13,7 @@ export function* doExample(payload) {
 
 export function* exampleSaga() {
 	while (true) {
-		const action = yield take('EXAMPLE_ACTION');
+		const action = yield take(type.EXAMPLE_ACTION_TYPE);
 		yield doExample(action.payload);
 	}
 }
