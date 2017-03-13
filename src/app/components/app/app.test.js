@@ -1,14 +1,19 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import {
+	shallow,
+	mount,
+	render
+} from 'enzyme'
 import sinon from 'sinon';
 import { expect } from 'chai'
 import App from './App'
 
 describe('(Component) App', () => {
-	it('renders...', () => {
-		const wrapper = shallow(<App />);
+	it('renders root div with proper className', () => {
+		const wrapper = render(<App />);
 
-		expect(wrapper).to.have.length(1);
+		expect(wrapper.children().length).to.equal(1);
+		expect(wrapper.children().first()).to.deep.equal(wrapper.find('div.app'));
 	});
 
 	it('calls componentDidMount', () => {
@@ -17,5 +22,9 @@ describe('(Component) App', () => {
 		mount(<App />);
 
 		expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
+	});
+	
+	it('renders proper children', () => {
+	    
 	});
 });
