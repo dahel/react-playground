@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ./testSetup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
-    "test-dev": "mocha --watch --require ./testSetup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
+    "test-watch": "mocha --watch --require ./testSetup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
     "win:build-development": "set NODE_ENV=development&& webpack -d --progress --config ./webpack.development.config.js",
     "win:build-production": "set NODE_ENV=production&& webpack -p --progress --config ./webpack.production.config.js",
     "win:dev-server": "set NODE_ENV=development&& webpack-dev-server --progress --config ./webpack.development.config.js",

@@ -7,7 +7,7 @@ import {
 import sinon from 'sinon';
 import { expect } from 'chai'
 
-import App from './App'
+import Example from './Example'
 
 describe('(Component) App', () => {
 	it('renders root div with proper className', () => {
