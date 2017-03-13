@@ -6,6 +6,7 @@ import {
 } from 'enzyme'
 import sinon from 'sinon';
 import { expect } from 'chai'
+
 import App from './App'
 
 describe('(Component) App', () => {
