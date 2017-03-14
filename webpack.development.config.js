@@ -48,6 +48,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CopyWebpackPlugin([
       { from: './src/index.html' }
-    ]),
+    ])
   ]
 };

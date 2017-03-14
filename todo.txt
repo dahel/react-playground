@@ -1,4 +1,7 @@
 1. otestowac example.js
+http://stackoverflow.com/questions/32385219/mocha-tests-dont-run-with-webpack-and-mocha-loader/32386750#32386750
+http://randycoulman.com/blog/2016/03/22/testing-with-mocha-and-webpack/
+http://blog.ricardofilipe.com/post/react-enzyme-tdd-tutorial
 https://github.com/carlbernrdo/react-enzyme-testing-tutorial
 https://semaphoreci.com/community/tutorials/testing-react-components-with-enzyme-and-mocha
 2. Testing redux-connected components (Example.js in this case)

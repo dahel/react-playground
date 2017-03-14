@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test2": "webpack -d --progress --config ./webpack.test.config.js",
     "test": "mocha --require ./testSetup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
     "test-watch": "mocha --watch --require ./testSetup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
     "win:build-development": "set NODE_ENV=development&& webpack -d --progress --config ./webpack.development.config.js",
