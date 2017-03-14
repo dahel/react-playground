@@ -15,7 +15,7 @@ describe('Example Component', () => {
 	});
 
 	it('should have props for className', function () {
-		const wrapper = shallow(<App />);
+		const wrapper = shallow(<Example />);
 
 		expect(wrapper.props().className).to.equal('app')
 	});
