@@ -1,5 +1,4 @@
-1. otestowac example.js
-2. Testing redux-connected components (Example.js in this case)
+1. Testowanie w browserze z webpackiem
 
 
 3. Testowanie w browserze z webpackiem:
