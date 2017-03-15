@@ -1,22 +1,43 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import {
 	shallow,
 	mount,
 	render
 } from 'enzyme'
+import { createMockStore } from 'redux-test-utils';
+import { Provider } from 'react-redux';
 import sinon from 'sinon';
 import { expect } from 'chai'
 
-import Example from '../Example'
+//http://www.thereformedprogrammer.net/unit-testing-react-components-that-use-redux/
+
+import ConnectedExample, {Example} from '../Example'
 
 describe('Example Component', () => {
-	it('should have proper root element', () => {
+	const store = createMockStore({
+		example: {
+			toJS: function () {
+				console.log('################################################### gooo');
 
+				return {
+					name: 'asdfasdf'
+				}
+			}
+		}
 	});
+	const props = {};
+
 
 	it('should have props for className', function () {
-		const wrapper = shallow(<Example />);
+		const wrapper = mount(<Provider store={store}>
+				<ConnectedExample />
+			</Provider>
+			);
 
-		expect(wrapper.props().className).to.equal('app')
+		console.log('################################################### div');
+		console.log(wrapper.first('div').hasClass('app'));
+
+		expect(wrapper.hasClass('app')).to.equal(true)
 	});
 });

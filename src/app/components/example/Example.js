@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 import config from 'config';
 
-class Example extends Component {
+export class Example extends Component {
 	constructor() {
 		super();
 
@@ -12,6 +12,8 @@ class Example extends Component {
 	}
 
 	render () {
+		console.log('################################################### rendering');
+		console.log(this.props);
 		return (
 			<div className="example">
 				<div>Example Component</div>
@@ -28,6 +30,7 @@ class Example extends Component {
 }
 
 function mapStateToProps(state) {
+	console.log('################################################### ??');
 	return {exampleStore: state.example.toJS()}
 }
 
