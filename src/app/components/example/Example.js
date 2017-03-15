@@ -12,12 +12,11 @@ export class Example extends Component {
 	}
 
 	render () {
-		console.log('################################################### rendering');
-		console.log(this.props);
 		return (
 			<div className="example">
 				<div>Example Component</div>
-				<div>{this.props.exampleStore.name}</div>
+				<div className="comment">{this.props.comment}</div>
+				<div className="name">{this.props.exampleStore.name}</div>
 				<div onClick={this.exampleMethod}>(click for example)</div>
 				<div>Example config: {config.EXAMPLE_CONFIG}</div>
 			</div>
@@ -30,7 +29,6 @@ export class Example extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log('################################################### ??');
 	return {exampleStore: state.example.toJS()}
 }
 

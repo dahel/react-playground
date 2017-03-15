@@ -1,43 +1,42 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import {
-	shallow,
-	mount,
-	render
-} from 'enzyme'
 import { createMockStore } from 'redux-test-utils';
 import { Provider } from 'react-redux';
-import sinon from 'sinon';
-import { expect } from 'chai'
-
-//http://www.thereformedprogrammer.net/unit-testing-react-components-that-use-redux/
 
 import ConnectedExample, {Example} from '../Example'
 
 describe('Example Component', () => {
+	const fakeStore = {
+		name: 'fake name'
+	};
 	const store = createMockStore({
 		example: {
-			toJS: function () {
-				console.log('################################################### gooo');
-
-				return {
-					name: 'asdfasdf'
-				}
+			toJS: () => {
+				return fakeStore;
 			}
 		}
 	});
-	const props = {};
+	const props = {
+		comment: 'test comment'
+	};
+	let wrapper;
 
-
-	it('should have props for className', function () {
-		const wrapper = mount(<Provider store={store}>
-				<ConnectedExample />
+	beforeEach(() => {
+		wrapper = mount(<Provider store={store}>
+				<ConnectedExample {...props}/>
 			</Provider>
-			);
+		);
+	});
 
-		console.log('################################################### div');
-		console.log(wrapper.first('div').hasClass('app'));
+	it('renders proper element with specific className', function () {
+		expect(wrapper.find('div').first().hasClass('example')).to.eql(true);
+		
+	});
 
-		expect(wrapper.hasClass('app')).to.equal(true)
+	it('renders proper comment', () => {
+		expect(wrapper.find('.comment').text()).to.equal('test comment');
+	});
+
+	it('renders proper name', () => {
+		expect(wrapper.find('.name').text()).to.equal('fake name');
 	});
 });
