@@ -4,16 +4,23 @@ var path = require('path');
 var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
-    entry: 'mocha!./src/index.jsx',
+    entry: [
+        // może trza tu zaciągną polyfille i inne bzdety?
+        // sprobowac zaciągac moche, enzyme i inne per plik a nie definiować globalne
+        //'webpack-dev-server/client?http://localhost:8080',
+        //'webpack/hot/only-dev-server',
+        //'babel-polyfill',
+        'mocha!./test/index.js'
+    ],
     output: {
         filename: 'test.build.js',
-        path: 'tests/',
-        publicPath: '/tests'
+        path: 'test/',
+        publicPath: 'test/'
     },
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.js|\.jsx$/,
                 loaders: ['babel-loader']
             },
             {
@@ -33,9 +40,9 @@ module.exports = {
         root: ROOT_PATH,
         extensions: ['', '.js', '.jsx'],
         alias: {
-            config: path.join(ROOT_PATH, 'src/app/config/config.development'),
+            config: path.join(ROOT_PATH, 'src/app/config/config.production'),
             action: path.join(ROOT_PATH, 'src/app/action'),
-            store: path.join(ROOT_PATH, 'src/app/store/store.development')
+            store: path.join(ROOT_PATH, 'src/app/store/store.production')
         }
     },
     devServer: {
