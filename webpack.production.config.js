@@ -47,6 +47,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new CopyWebpackPlugin([
       { from: './src/index.html' }
-    ]),
+    ])
   ]
 };
