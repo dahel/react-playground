@@ -47,6 +47,6 @@ module.exports = {
     },
     devServer: {
         host: 'localhost',
-        port: '85   '
+        port: '85'
     }
 };
