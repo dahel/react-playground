@@ -31,7 +31,7 @@ module.exports = {
                 ]
             },
             {
-                test: /(\.jpg|\.jpeg|\.png|\.gif)$/,
+                test: /(\.jpg|\.jpeg|\.png|\.gif|\.json)$/,
                 loader: 'null-loader'
             }
         ]
@@ -44,6 +44,13 @@ module.exports = {
             action: path.join(ROOT_PATH, 'src/app/action'),
             store: path.join(ROOT_PATH, 'src/app/store/store.production')
         }
+    },
+    externals: {
+        "jsdom": "window",
+        "cheerio": "window",
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true,
+        'react/addons': true
     },
     devServer: {
         host: 'localhost',
