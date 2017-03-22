@@ -1,4 +1,7 @@
-1. Testowanie w browserze z webpackiem
+1. Testowanie w browserze z webpackiem:
+     - sprawdzić entry point jako jeden moduł, bez sinona
+
+2. Uruchomienie na macu
 
 
 3. Testowanie w browserze z webpackiem:
