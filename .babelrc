@@ -1,5 +1,5 @@
 {
-  "presets":[ "react", "es2015", "es3", "es2015-mod"],
+  "presets":[ "react", "es2015"],
   "env": {
     "test": {
       "plugins": [

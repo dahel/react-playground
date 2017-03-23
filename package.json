@@ -1,20 +1,26 @@
 {
   "name": "react-readux-saga-starter",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Boilerplate for React Redux Saga applications",
   "main": "index.js",
   "scripts": {
-    "test": "set NODE_ENV=test&& mocha --require ./test/setup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
-    "test:dev": "webpack-dev-server --config webpack.test.config.js",
-    "test:watch": "set NODE_ENV=test&& mocha --watch --require ./test/setup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
-    "win:build-development": "set NODE_ENV=development&& webpack -d --progress --config ./webpack.development.config.js",
-    "win:build-production": "set NODE_ENV=production&& webpack -p --progress --config ./webpack.production.config.js",
-    "win:dev-server": "set NODE_ENV=development&& webpack-dev-server --progress --config ./webpack.development.config.js",
-    "lin:build-development": "NODE_ENV=development webpack -d --progress --config ./webpack.development.config.js",
-    "lin:build-production": "NODE_ENV=production webpack -p --progress  --config ./webpack.production.config.js",
-    "lin:dev-server": "NODE_ENV=development webpack-dev-server --progress --config ./webpack.development.config.js"
+    "test": "cross-env NODE_ENV=test mocha --require ./test/setup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
+    "test:watch": "cross-env NODE_ENV=test mocha --watch --require ./test/setup.js --compilers js:babel-core/register \"src/**/*@(.test.js|.test.jsx)\"",
+    "build:dev": "cross-env NODE_ENV=development webpack -d --progress --config ./webpack.development.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack -p --progress --config ./webpack.production.config.js",
+    "dev-server": "cross-env NODE_ENV=development webpack-dev-server --progress --config ./webpack.development.config.js",
+
+    "win:build:dev": "cross-env NODE_ENV=development webpack -d --progress --config ./webpack.development.config.js",
+    "win:build:prod": "cross-env NODE_ENV=production webpack -p --progress --config ./webpack.production.config.js",
+    "win:dev-server": "cross-env NODE_ENV=development webpack-dev-server --progress --config ./webpack.development.config.js",
+    "unix:build:dev": "cross-env NODE_ENV=development webpack -d --progress --config ./webpack.development.config.js",
+    "unix:build:prod": "cross-env NODE_ENV=production webpack -p --progress  --config ./webpack.production.config.js",
+    "unix:dev-server": "cross-env NODE_ENV=development webpack-dev-server --progress --config ./webpack.development.config.js"
   },
-  "author": "",
+  "author": {
+    "name": "Sebastian Prymas",
+    "email": "prymas.sebastian@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-core": "6.5.1",
@@ -27,6 +33,7 @@
     "babel-preset-react": "6.5.0",
     "chai": "^3.5.0",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^3.2.4",
     "css-loader": "^0.26.2",
     "enzyme": "^2.7.1",
     "enzyme-redux": "^0.1.6",

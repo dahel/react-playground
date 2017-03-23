@@ -6,7 +6,6 @@ var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
   debug: false,
-  devtool: 'cheap-module-source-map',
   entry: [
     'babel-polyfill',
     path.resolve(ROOT_PATH, 'src/index.jsx')

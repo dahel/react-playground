@@ -5,7 +5,9 @@ export default class App extends Component {
 		super();
 	}
 
-	componentDidMount() {}
+	componentDidMount() {
+		debugger;
+	}
 
 	render () {
 		return <div className="app">{this.props.children}</div>
