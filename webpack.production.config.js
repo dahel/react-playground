@@ -45,7 +45,7 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin(),
     new CopyWebpackPlugin([
-      { from: './src/index.html' }
+      { from: path.join(ROOT_PATH, 'src/index.html')}
     ])
   ]
 };

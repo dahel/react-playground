@@ -1,3 +1,0 @@
-- Sprawdzic komendy na macu
-- licencja
-- opis
