@@ -1,0 +1,3 @@
+1. Czy boilerplaty są serwowane przez npm, jesli tak to jak?
+2. Instrukcja instalacji w readme
+3. Spłaszczenie historii commitów
