@@ -1,5 +1,0 @@
-- Czy boilerplaty są serwowane przez npm, jesli tak to jak?
-- Instrukcja instalacji w readme
-- dodac autoprefixer
-- Przejrzeć https://github.com/juliancwirko/react-boilerplate/blob/master/package.json + odpalic
-- Spłaszczenie historii commitów
